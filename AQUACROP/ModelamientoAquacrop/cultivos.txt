@@ -1,0 +1,7 @@
+maiz,125 
+lechuga,75
+cebolla,150
+uva,210
+cebada,120
+tomate,135
+papa

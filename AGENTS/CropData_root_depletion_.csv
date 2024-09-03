@@ -1,0 +1,105 @@
+Crop,"Maximum Root Depth 1 (m)","Depletion Fraction 2 (for ET » 5 mm/day) p"
+Broccoli,0.4-0.6,0.45
+Brussel Sprouts,0.4-0.6,0.45
+Cabbage,0.5-0.8,0.45
+Carrots,0.5-1.0,0.35
+Cauliflower,0.4-0.7,0.45
+Celery,0.3-0.5,0.20
+Garlic,0.3-0.5,0.30
+Lettuce,0.3-0.5,0.30
+- onion dry,0.3-0.6,0.30
+- onion green,0.3-0.6,0.30
+- onion seed,0.3-0.6,0.35
+Spinach,0.3-0.5,0.20
+Radishes,0.3-0.5,0.30
+Egg Plant,0.7-1.2,0.45
+Sweet Peppers (bell),0.5-1.0,0.30
+Tomato,0.7-1.5,0.40
+Cantaloupe,0.9-1.5,0.45
+- Cucumber Fresh Market,0.7-1.2,0.50
+- Cucumber Machine harvest,0.7-1.2,0.50
+"Pumpkin, Winter Squash",1.0-1.5,0.35
+"Squash, Zucchini",0.6-1.0,0.50
+Sweet Melons,0.8-1.5,0.40
+Watermelon,0.8-1.5,0.40
+"Beets, table",0.6-1.0,0.50
+-Cassava year 1,0.5-0.8,0.35
+-Cassava year 2,0.7-1.0,0.40
+Parsnip,0.5-1.0,0.40
+Potato,0.4-0.6,0.35
+Sweet Potato,1.0-1.5,0.65
+Turnip (and Rutabaga),0.5-1.0,0.50
+Sugar Beet,0.7-1.2,0.55
+"Beans, green",0.5-0.7,0.45
+"Beans, dry and Pulses",0.6-0.9,0.45
+"Beans, lima, large vines",0.8-1.2,0.45
+Chick pea,0.6-1.0,0.50
+- Fababean (broad bean) Fresh,0.5-0.7,0.45
+- Fababean (broad bean) Dry/Seed,0.5-0.7,0.45
+Grabanzo,0.6-1.0,0.45
+Green Gram and Cowpeas,0.6-1.0,0.45
+Groundnut (Peanut),0.5-1.0,0.50
+Lentil,0.6-0.8,0.50
+-Peas Fresh,0.6-1.0,0.35
+-Peas Dry/Seed,0.6-1.0,0.40
+Soybeans,0.6-1.3,0.50
+Artichokes,0.6-0.9,0.45
+Asparagus,1.2-1.8,0.45
+Mint,0.4-0.8,0.40
+Strawberries,0.2-0.3,0.20
+Cotton,1.0-1.7,0.65
+Flax,1.0-1.5,0.50
+Sisal,0.5-1.0,0.80
+Castorbean (Ricinus),1.0-2.0,0.50
+"Rapeseed, Canola",1.0-1.5,0.60
+Safflower,1.0-2.0,0.60
+Sesame,1.0-1.5,0.60
+Sunflower,0.8-1.5,0.45
+Barley,1.0-1.5,0.55
+Oats,1.0-1.5,0.55
+Spring Wheat,1.0-1.5,0.55
+Winter Wheat,1.5-1.8,0.55
+"Maize, Field (grain) (field corn)",1.0-1.7,0.55
+"Maize, Sweet (sweet corn)",0.8-1.2,0.50
+Millet,1.0-2.0,0.55
+-Sorghum grain,1.0-2.0,0.55
+-Sorghum sweet,1.0-2.0,0.50
+Rice,0.5-1.0,0.20
+-Alfalfa for hay,1.0-2.0,0.55
+-Alfalfa for seed,1.0-3.0,0.60
+-Bermuda for hay,1.0-1.5,0.55
+-Bermuda Spring crop for seed,1.0-1.5,0.60
+"Clover hay, Berseem",0.6-0.9,0.50
+Rye Grass hay,0.6-1.0,0.60
+Sudan Grass hay (annual),1.0-1.5,0.55
+-Grazing Pasture Rotated Grazing,0.5-1.5,0.60
+-Grazing Pasture Extensive Grazing,0.5-1.5,0.60
+-Turf grass cool season 5,0.5-1.0,0.40
+-Turf grass warm season 5,0.5-1.0,0.50
+k. Sugar Cane,1.2-2.0,0.65
+-Banana 1st year,0.5-0.9,0.35
+-Banana 2nd year,0.5-0.9,0.35
+Cacao,0.7-1.0,0.30
+Coffee,0.9-1.5,0.40
+Date Palms,1.5-2.5,0.50
+Palm Trees,0.7-1.1,0.65
+Pineapple,0.3-0.6,0.50
+Rubber Trees,1.0-1.5,0.40
+-Tea non-shaded,0.9-1.5,0.40
+-Tea shaded,0.9-1.5,0.45
+Berries (bushes),0.6-1.2,0.50
+-Grapes Table or Raisin,1.0-2.0,0.35
+-Grapes Wine,1.0-2.0,0.45
+Hops,1.0-1.2,0.50
+Almonds,1.0-2.0,0.40
+"Apples, Cherries, Pears",1.0-2.0,0.50
+"Apricots, Peaches, Stone Fruit",1.0-2.0,0.50
+Avocado,0.5-1.0,0.70
+-Citrus 70% canopy,1.2-1.5,0.50
+-Citrus 50% canopy,1.1-1.5,0.50
+-Citrus 20% canopy,0.8-1.1,0.50
+Conifer Trees,1.0-1.5,0.70
+Kiwi,0.7-1.3,0.35
+Olives (40 to 60% ground coverage by canopy),1.2-1.7,0.65
+Pistachios,1.0-1.5,0.40
+Walnut Orchard,1.7-2.4,0.50

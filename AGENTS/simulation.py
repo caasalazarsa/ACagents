@@ -1,0 +1,484 @@
+import time
+import numpy as np
+from spade.agent import Agent
+from spade.behaviour import OneShotBehaviour
+from spade.message import Message
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 23 14:27:31 2018
+
+@author: precision
+"""
+
+import subprocess
+import shutil
+import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg')
+from datetime import date
+import matplotlib.pyplot as plt
+import os
+import io
+from random import randrange
+
+ 
+
+startdate=date(1995,3,22)
+currentdate=date(1995,7,24)
+cropidate=date(1995,3,22)
+cropfdate=date(1995,7,24)
+
+switcher = {
+        1: 0,
+        2: 31,
+        3: 59.25,
+        4: 90.25,
+        5: 120.25,
+        6: 151.25,
+        7: 181.25,
+        8: 212.25,
+        9: 243.25,
+        10: 273.25,
+        11: 304.25,
+        12: 334.25
+    }
+
+
+def create_irr():
+    path1 = '../AQUACROP/ACApp/DATA/irrigationpresc.IRR'
+    path2 = '../AQUACROP/ACApp/DATA/irrigationpresctest.IRR'
+    shutil.copyfile(path1, path2)
+    i = 0
+    p = os.path.abspath('..')
+
+    filedata = open(path1, "r+", encoding="cp1252")
+
+    output = open(path2, "w+", encoding="cp1252", newline='\r\n')
+
+    for line in filedata:
+        line = str(line)
+        a = line.split()
+        #print(line,'\n')
+
+        if not a:
+            print("Line is empty")
+            output.write(line)
+        else:
+            if i>=8:
+                a[1]="50"
+                a[0] = "10"
+                line="     "+a[0]+"        "+a[1]+"          "+a[2]
+                print(str(a))
+                output.write(line + '\n')
+            else:
+                output.write(line)
+        i=i+1
+
+    output.close()
+
+
+    pass
+
+def EditModel():
+   path='../AQUACROP/ACApp/DATA/Default.PRO'
+   path1='../AQUACROP/ACApp/DATA/Default_Test.PRO'
+   #path2='/home/caasalazarsa/Documentos/PRUEBAS_TESIS/AquaCropV61Nr02052018/DATA/Default_Out.PRO'
+   path2='../AQUACROP/ACPlug/LIST/Default.PRO'
+
+   shutil.copyfile(path, path1)
+   i=0 
+   p = os.path.abspath('..')
+   filedata = open(path1,"r+",encoding="cp1252")
+
+   output = open(path2,"w+",encoding="cp1252",newline='\r\n')   
+   i=0
+   h=0
+   h=randrange(6)
+   for line in filedata:
+       line=str(line)
+       a = line.split( )
+       #print(line,'\n') 
+       if not a:
+           print("Line is empty")
+           output.write(line)               
+       else:
+            #print(i,line,'\n') 
+            #print(i,a[0],'\n')
+            if i==2:
+##  34414         : First day of simulation period
+               year=startdate.year
+               month=startdate.month
+               day=startdate.day
+
+               nummonth=switcher.get(month,"no hay")
+               number=int((year-1901)*365.25+nummonth+day)
+               line2='  '+str(number)+'         : First day of simulation period - '+startdate.strftime("%d %B %Y")+' '
+               print(line2+'\n')
+               output.write(line2+'\n') 
+            elif i==3:
+##  34481         : Last day of simulation period
+               year=currentdate.year
+               month=currentdate.month
+               day=currentdate.day
+
+               nummonth=switcher.get(month,"no hay")
+               number=int((year-1901)*365.25+nummonth+day)
+               line2='  '+str(number)+'         : First day of simulation period - '+currentdate.strftime("%d %B %Y")+' '
+               print(line2+'\n')
+               output.write(line2+'\n') 
+            elif i==4:
+##  34414         : First day of cropping period
+               year=cropidate.year
+               month=cropidate.month
+               day=cropidate.day
+
+               nummonth=switcher.get(month,"no hay")
+               number=int((year-1901)*365.25+nummonth+day)
+               line2='  '+str(number)+'         : First day of simulation period - '+cropidate.strftime("%d %B %Y")+' '
+               print(line2+'\n')
+               output.write(line2+'\n') 
+            elif i==5:
+##  34414         : Last day of cropping period
+               year=cropfdate.year
+               month=cropfdate.month
+               day=cropfdate.day
+
+               nummonth=switcher.get(month,"no hay")
+               number=int((year-1901)*365.25+nummonth+day)
+               line2='  '+str(number)+'         : First day of simulation period - '+cropfdate.strftime("%d %B %Y")+' '
+               print(line2+'\n')
+               output.write(line2+'\n') 
+            elif i==28:
+               #h=randrange(6)
+               h=0
+               if h==0:
+                line='   Lima.CLI'
+                print("Lima")
+               elif h==1:
+                line='   Axum.CLI'
+                print("Axum")
+               elif h==2:
+                line='   Davis.CLI'
+                print("Davis")
+               elif h==3:
+                line='   Tunis.CLI'
+                print("Tunis")
+               elif h==4:
+                line='   Hawzen.CLI'
+                print("Hawzen")
+               elif h==5:
+                line='   Cordoba.CLI'
+                print("Cordoba")
+               output.write(line+'\n')
+
+            elif i==31:
+               #h=randrange(6)
+               h=0
+               if h==0:
+                line='   Lima.TMP'
+               elif h==1:
+                line='   Axum.TMP'
+               elif h==2:
+                line='   Davis.TMP'
+               elif h==3:
+                line='   Tunis.TMP'
+               elif h==4:
+                line='   Hawzen.TMP'
+               elif h==5:
+                line='   Cordoba.TMP'
+               output.write(line+'\n')
+
+            elif i==34:
+               #h=randrange(6)
+               h=0
+               if h==0:
+                line='   Lima.ETo'
+               elif h==1:
+                line='   Axum.ETo'
+               elif h==2:
+                line='   Davis.ETo'
+               elif h==3:
+                line='   Tunis.ETo'
+               elif h==4:
+                line='   Hawzen.ETo'
+               elif h==5:
+                line='   Cordoba.ETo'
+               output.write(line+'\n')
+
+            elif i==37:
+               #h=randrange(6)
+               h=0
+               if h==0:
+                line='   Lima.PLU'
+               elif h==1:
+                line='   Axum.PLU'
+               elif h==2:
+                line='   Davis.PLU'
+               elif h==3:
+                line='   Tunis.PLU'
+               elif h==4:
+                line='   Hawzen.PLU'
+               elif h==5:
+                line='   Cordoba.PLU'
+               output.write(line+'\n')
+
+            elif i==40:
+               line='   GlobalAverage.CO2'
+               output.write(line+'\n')
+               """h=randrange(6)
+               if h==0:
+                line='   A2.CO2'
+               elif h==1:
+                line='   B1.CO2'
+               elif h==2:
+                line='   B2.CO2'
+               elif h==3:
+                line='   A1B.CO2'
+               elif h==4:
+                line='   GlobalAverage.CO2'
+               elif h==5:
+                line='   RCP2-6.CO2'
+               output.write(line+'\n')"""
+               
+
+
+            elif i==43:
+               h=1
+               if h==0:
+                line='   Wheat.CRO'
+               elif h==1:
+                line='   Potato.CRO'
+               elif h==2:
+                line='   Quinoa.CRO'
+               elif h==3:
+                line='   DryBean.CRO'
+               elif h==4:
+                line='   Soybean.CRO'
+               elif h==5:
+                line='   PaddyRice.CRO'
+               output.write(line+'\n')
+
+            elif i==46:
+               h=5
+               if h==0:
+                line='   Igen.IRR'
+                print("Igen")
+               elif h==1:
+                line='   Inet.IRR'
+                print("Inet")
+               elif h==2:
+                line='   TR2a.IRR'
+                print("Tr2a")
+               elif h==3:
+                line='   IrrAub.IRR'
+                print("IrrAub")
+               elif h==4:
+                line='   Tr2bFix.IRR'
+                print("Tr2bFIx")
+               elif h==5:
+                line='   irrigationpresctest.IRR'
+                print("irrigationpresctest")
+               output.write(line+'\n')
+
+            elif i==52:
+               h=1
+               if h==0:
+                line='   Clay.SOL'
+               elif h==1:
+                line='   Loam.SOL'
+               elif h==2:
+                line='   Sand.SOL'
+               elif h==3:
+                line='   Silt.SOL'
+               elif h==4:
+                line='   PADDY.SOL'
+               elif h==5:
+                line='   SoilAub.SOL'
+               output.write(line+'\n')
+
+            else:
+               output.write(line)
+            #output.write(line)                      
+
+#28 =.CLI
+#31 =.TMP
+#34 =.ET0
+#37 =.PLU
+#40 =.CO2
+#43 =.CRO
+#46 =.IRR
+#52 =.SOL
+       i=i+1	
+   output.close()
+   filedata.close()
+
+
+
+def EditIrrigation():
+   path='../AQUACROP/ACApp/DATA/Default_Test.PRO'
+   path1='../AQUACROP/ACApp/DATA/Default_Test_Test.PRO'
+   path2='../AQUACROP/ACApp/DATA/Defualt_Test_Out.PRO'
+
+   shutil.copyfile(path, path1)
+   i=0 
+   
+   filedata = open(path1,"r")
+   output = open(path2,"w")   
+   i=0
+   for line in filedata:
+       a = line.split( )
+
+
+       
+def runModel():
+    proc=subprocess.Popen(['wine', '../AQUACROP/ACPlug/ACsaV60.exe'])
+    stdoutdata, stderrdata = proc.communicate()
+    
+
+def readModelOutput():
+   path='../AQUACROP/ACPlug/OUTP/DefaultPROday.OUT'
+   path1='Temporalday.txt'
+   path2='ModelOutputday.txt'
+   shutil.copyfile(path, path1) 
+   with open(path1, 'r',errors='ignore') as fin:
+       data = fin.read().splitlines(True)
+   with open(path2, 'w') as fout:
+       fout.writelines(data[4:])
+   fin.close()
+   fout.close() 
+   
+
+   path3='../AQUACROP/ACPlug/OUTP/DefaultPROseason.OUT'
+   path4='Temporalseason.txt'
+   path5='ModelOutputseason.txt'
+   shutil.copyfile(path3, path4) 
+   with open(path4, 'r',errors='ignore') as fin1:
+       data = fin1.read().splitlines(True)
+   with open(path5, 'w') as fout1:
+       fout1.writelines(data[4:])
+   fin1.close()
+   fout1.close() 
+
+   
+def Charts():
+    filedata = open('ModelOutputday.txt',"r")
+    Day=[]
+    Month=[]
+    WC1=[]
+    WC2=[]
+    WC3=[]    
+    rain = []
+    irrigation =[]
+    CC=[]
+    Etc=[]
+    GD=[]
+    KC=[]
+    Biomass=[]
+    Yield=[]
+    Z=[]
+    i=0
+    for line in filedata:
+       a = line.split()
+       Day.append(float(i))
+       WC1.append(float(a[65]))
+       WC2.append(float(a[66]))
+       WC3.append(float(a[67]))      
+       rain.append(float(a[6]))
+       irrigation.append(float(a[7]))
+       Etc.append(float(a[21]))
+       KC.append(float(a[33]))   
+       GD.append(float(a[23]))       
+       Z.append(float(a[24]))    
+       CC.append(float(a[30]))
+       Biomass.append(float(a[39]))
+       Yield.append(float(a[41]))       
+       
+       i=i+1
+       
+    fig = plt.figure()
+    color = 'black'
+    ax = fig.add_subplot(511)
+#    ax.set_xlim(datemin, datemax)
+    ax.set_ylabel('mm', color=color, fontsize=15)
+    ax.grid(True)
+    fig.set_size_inches(12, 8)
+    
+    ax.plot(Day, rain,'k',label='Rain')
+    ax.plot(Day, irrigation,'c',label='Irrigation')
+    ax.plot(Day, Etc,'m',label='ETc')
+    #ax.set_title('Time (Days)')  
+    legend = ax.legend(loc='upper left', shadow=True, fontsize=8)
+    legend.get_frame().set_facecolor('#87CEFA')       
+      
+    ax = fig.add_subplot(512)
+#    ax.set_xlim(datemin, datemax)
+    ax.set_ylabel('Ton/ha', color=color, fontsize=15)
+    ax.set_xlabel('Time (Days)')  
+    ax.grid(True)
+    fig.set_size_inches(12, 8)
+    ax.plot(Day, Biomass,'r', label='Biomass')
+    ax.plot(Day, Yield,'g',label='Yield')
+    #ax.set_title('Biomass (ton/ha) and Yield (ton/ha)')  
+    legend = ax.legend(loc='upper left', shadow=True, fontsize=8)
+    legend.get_frame().set_facecolor('#87CEFA')
+       
+
+    ax = fig.add_subplot(513)
+#    ax.set_xlim(datemin, datemax)
+    ax.set_ylabel('Deg C-day', color=color, fontsize=15)
+    ax.set_xlabel('Time (Days)')  
+    ax.grid(True)
+    fig.set_size_inches(12, 8)
+    ax.plot(Day, GD,'b', label='GD')
+    #ax.set_title('GD (Deg C - day)')  
+    legend = ax.legend(loc='upper left', shadow=True, fontsize=8)
+    legend.get_frame().set_facecolor('#87CEFA')
+
+    ax = fig.add_subplot(514)
+#    ax.set_xlim(datemin, datemax)
+    ax.set_ylabel('% VWC', color=color, fontsize=15)
+    ax.set_xlabel('Time (Days)')  
+    ax.grid(True)
+    fig.set_size_inches(12, 8)
+    ax.plot(Day, WC1,'r', label='WC Depth 1')
+    ax.plot(Day, WC2,'g', label='WC Depth 2')    
+    ax.plot(Day, WC3,'b', label='WC Depth 3')
+    #ax.set_title()  
+    legend = ax.legend(loc='upper left', shadow=True, fontsize=8)
+    legend.get_frame().set_facecolor('#87CEFA')                    
+
+    ax = fig.add_subplot(515)
+#    ax.set_xlim(datemin, datemax)
+    ax.set_ylabel('CC (%)', color=color, fontsize=15)
+    ax.set_xlabel('Time (Days)')  
+    ax.grid(True)
+    fig.set_size_inches(12, 8)
+    ax.plot(Day, CC,'g', label='CC')
+    #ax.set_title('CC (%)')  
+    legend = ax.legend(loc='upper left', shadow=True, fontsize=8)
+    legend.get_frame().set_facecolor('#87CEFA')                       
+
+    Season = open('ModelOutputseason.txt',"r")
+    for line in Season:
+       a = line.split()
+       print ('Total Rain', a[5])
+       print ('Total ET0', a[6] )
+       print ('Total GD', a[7])
+       print ('Total CO2', a[8])
+       print ('Total Irrigation',a[9] )
+       print ('Total Biomass (ton/ha)',a [30] )
+       print ('Total Yield (ton/ha)', a[33] )
+
+    plt.show()
+
+
+
+create_irr()
+EditModel()
+runModel()                   
+readModelOutput()
+Charts()   
+
+
+

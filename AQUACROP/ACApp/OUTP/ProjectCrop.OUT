@@ -1,0 +1,46 @@
+AquaCrop 6.1 (May 2018) - Output created on (date) : 20/08/2020   at (time) : 12:15:08 p.m.
+Crop development and production
+
+** Run number:  1
+   Day Month  Year   DAP Stage    GD       Z     StExp  StSto  StSen StSalt StWeed   CC      CCw     StTr  Kc(Tr)     Trx      Tr       TrW  Tr/Trx   WP    Biomass     HI  YieldPart  Brelative   WPet
+                                °C-day     m       %      %      %      %      %      %       %       %       -        mm       mm       mm    %     g/m2    ton/ha      %    ton/ha       %      kg/m3
+    22     3     1     1    1    14.5    0.30     -9     -9     -9      0     -9     0.0     0.0      0    -9.00      0.0      0.0      0.0   100    17.0     0.000    -9.9    0.000       -9      0.00
+    23     3     1     2    1    14.5    0.30     -9     -9     -9      0     -9     0.0     0.0      0    -9.00      0.0      0.0      0.0   100    17.0     0.000    -9.9    0.000       -9      0.00
+    24     3     1     3    1    14.5    0.30     -9     -9     -9      0     -9     0.0     0.0      0    -9.00      0.0      0.0      0.0   100    17.0     0.000    -9.9    0.000       -9      0.00
+    25     3     1     4    1    14.5    0.30     -9     -9     -9      0     -9     0.0     0.0      0    -9.00      0.0      0.0      0.0   100    17.0     0.000    -9.9    0.000       -9      0.00
+    26     3     1     5    1    14.5    0.30     -9     -9     -9      0     -9     0.0     0.0      0    -9.00      0.0      0.0      0.0   100    17.0     0.000    -9.9    0.000       -9      0.00
+    27     3     1     6    2    14.5    0.30     -9      0      0      0      0     1.4     1.4      0     0.03      0.1      0.1      0.1   100    17.0     0.004    -9.9    0.000      100      0.00
+    28     3     1     7    2    14.5    0.32     -9      0      0      0      0     1.6     1.6      0     0.03      0.2      0.2      0.2   100    17.0     0.010    -9.9    0.000      100      0.00
+    29     3     1     8    2    14.5    0.33      0      0      0      0      0     1.9     1.9      0     0.04      0.2      0.2      0.2   100    17.0     0.016    -9.9    0.000      100      0.00
+    30     3     1     9    2    14.5    0.35      0      0      0      0      0     2.2     2.2      0     0.04      0.2      0.2      0.2   100    17.0     0.023    -9.9    0.000      100      0.00
+    31     3     1    10    2    14.5    0.36      0      0      0      0      0     2.5     2.5      0     0.05      0.2      0.2      0.2   100    17.0     0.031    -9.9    0.000      100      0.00
+
+Legend
+
+DAP          : Days after planting
+Stage        : 0: before/after planting
+Stage        : 1: emergence or transplant recovery
+Stage        : 2: vegetative stage
+Stage        : 3: flowering
+Stage        : 4: yield formation and ripening
+GD           : Growing degrees
+Z            : Effective rooting depth
+StExp        : Percent water stress reducing leaf expansion
+StSto        : Percent water stress inducing stomatal closure
+StSen        : Percent water stress triggering early canopy senescence
+StSalt       : Percent salinity stress
+StWeed       : Relative cover of weeds
+CC           : Green total Canopy Cover of crop and weeds
+CCw          : Green crop Canopy Cover in weed infested field
+StTr         : Percent temperature stress affecting crop transpiration
+Kc(Tr)       : Crop coefficient for transpiration
+Trx          : Maximum total transpiration of crop and weeds
+Tr           : Total transpiration of crop and weeds
+TrW          : Crop transpiration in weed infested field
+Tr/Trx       : Relative total transpiration of crop and weeds (100 Tr/Trx)
+WP           : Crop water productivity adjusted for CO2, soil fertility and products synthesized
+Biomass      : Cumulative crop biomass
+HI           : Harvest Index adjusted for failure of pollination, inadequate photosynthesis and water stress
+Yield Part   : Crop yield (HI x Biomass)
+Brelative    : Relative biomass (Reference: no water, no soil fertility, no soil salinity stress, no weed infestation)
+WPet         : ET Water productivity for yield part (kg yield produced per m3 water evapotranspired)

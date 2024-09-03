@@ -1,0 +1,21 @@
+EvSmith Irrigation Experiment _ Canopy Temperature
+   6.1   : AquaCrop Version (May 2018)
+   1     : Sprinkler irrigation
+ 100     : Percentage of soil surface wetted by irrigation
+   1     : Irrigation schedule
+
+   Day    Depth (mm)   ECw (dS/m)
+====================================
+     10        10          0.5
+     20        8          0.5
+     30        8          0.5
+     40        10          0.5
+     50        13          0.5
+     60        16          0.5
+     70        19          0.5
+     80        21          0.5
+     90        21          0.5
+     100        21          0.5
+     110        22          0.5
+     120        21          0.5
+     130        19          0.5

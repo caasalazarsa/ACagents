@@ -1,0 +1,17 @@
+Para ejecutar es necesario tener la versión 3.6 de python installada y tener la librería de spade igualmente instalada en dicha versión.
+Se requiere un servidor xmpp, para ello se recomienda usar prosody:
+https://www.linuxbabe.com/ubuntu/install-configure-prosody-xmpp-server-ubuntu-16-04-17-04
+luego se deben adicionar 3 usuarios con las siguientes claves:
+"agent1@localhost", "agent123"
+"agent2@localhost", "agent234"
+"agent3@localhost", "agent345"
+
+cuando se disponga con los usuarios en la red XMPP se ejecutan los scripts de la forma 
+<scriptdir>$ python3.6 <scriptaejecutar>.py
+
+donde sriptdir es la carpeta donde se están guardando los scripts, ejemplo:
+~/Documentos/PRUEBAS_TESIS/SPADE$ python3.6 coordinationagent.py 
+
+
+
+
